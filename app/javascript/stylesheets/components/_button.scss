@@ -1,0 +1,52 @@
+.button {
+  @include padding($su-2, $su-4, $su-2, $su-4);
+  border-radius: 1rem;
+  color: $white;
+  display: inline-block;
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &--large {
+    @include padding($su-4, $su-8, $su-4, $su-8);
+  }
+
+  &--green {
+    background-color: $green-300;
+
+    &:hover {
+      background-color: $green-200;
+    }
+  }
+
+  &--pink {
+    background-color: $pink-300;
+
+    &:hover {
+      background-color: $pink-200;
+    }
+  }
+
+  &--red {
+    background-color: $red-300;
+
+    &:hover {
+      background-color: $red-200;
+    }
+  }
+
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid $neutral-200;
+  }
+
+  &--yellow {
+    background-color: $yellow-300;
+
+    &:hover {
+      background-color: $yellow-200;
+    }
+  }
+}

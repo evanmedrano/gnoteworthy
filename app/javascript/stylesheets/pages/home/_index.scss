@@ -1,0 +1,61 @@
+.homeIndex {
+  color: $white;
+  font-size: $fs-4;
+  flex: 1;
+
+  &__hero {
+    background: url('../images/hero.jpeg') center center no-repeat;
+    background-blend-mode: luminosity;
+    background-color: hsla(0, 100%, 100%, .7);
+    background-size: cover;
+    -webkit-filter: blur(.4rem);
+    filter: blur(.4rem);
+    height: 100%;
+  }
+
+  &__about-container {
+    @include padding(null, $su-3, null, $su-3);
+    left: 0;
+    max-width: 70rem;
+    position: absolute;
+    text-align: center;
+    top: 35%;
+
+    @include respond-to('md') {
+      left: 10%;
+      text-align: left;
+    }
+
+    @include respond-to('lg') {
+      left: 15%;
+    }
+  }
+
+  &__headline {
+    color: $yellow-100;
+    font-size: $fs-9;
+    letter-spacing: 2rem;
+
+    @include respond-to('sm') {
+      font-size: $fs-11;
+    }
+
+    @include respond-to('md') {
+      font-size: $fs-12;
+    }
+  }
+
+  &__subheadline {
+    @include margin($su-5, null, $su-5, null);
+    font-size: $fs-4;
+    letter-spacing: .1rem;
+
+    @include respond-to('sm') {
+      font-size: $fs-5;
+    }
+
+    @include respond-to('md') {
+      font-size: $fs-6;
+    }
+  }
+}

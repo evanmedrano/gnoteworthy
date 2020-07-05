@@ -1,0 +1,43 @@
+.header {
+  @include padding($su-5, null, $su-5, null);
+  background-color: $white;
+  font-size: $fs-5;
+
+  &__list {
+    align-items: baseline;
+    display: flex;
+    list-style: none;
+  }
+
+  &__logo {
+    height: 5rem;
+  }
+
+  &__brand {
+    color: $black;
+    font-family: cursive;
+    font-size: $fs-8;
+
+    &:hover {
+      color: $black;
+      text-decoration: none;
+    }
+
+    span {
+      vertical-align: bottom;
+    }
+
+    span:hover {
+      color: $neutral-400;
+    }
+  }
+
+  &__link {
+    color: $neutral-500;
+
+    &:hover {
+      color: $neutral-500;
+      text-decoration: none;
+    }
+  }
+}

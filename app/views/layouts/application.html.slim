@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title = Rails.application.class.parent.to_s
+    title = Gnoteworthy
     = csrf_meta_tags
     = csp_meta_tag
 
@@ -9,7 +9,7 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body
+  body.d-flex.flex-column
     = render 'header'
 
     - if flash.any?

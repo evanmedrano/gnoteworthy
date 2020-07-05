@@ -1,0 +1,23 @@
+header.header
+  .container
+    nav.header__nav
+      ul.header__list
+        li.header__item.mr-auto
+          = link_to root_path, class: "header__brand" do
+            = image_pack_tag 'logo.png', class: "header__logo"
+            span.ml-3 gnoteworthy
+        - if user_signed_in?
+          li.header__item
+            = link_to \
+              "Log out",
+              destroy_user_session_path,
+              method: :delete,
+              class: "header__link"
+        - else
+          li.header__item
+            = link_to "Log in", new_user_session_path, class: "header__link"
+          li.header__item
+            = link_to \
+              "Sign up",
+              new_user_registration_path,
+              class: "button button--red ml-4"
