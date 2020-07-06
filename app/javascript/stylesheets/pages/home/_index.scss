@@ -1,33 +1,31 @@
-.homeIndex {
-  color: $white;
+.home.index {
   font-size: $fs-4;
   flex: 1;
 
-  &__hero {
-    background: url('../images/hero.jpeg') center center no-repeat;
-    background-blend-mode: luminosity;
-    background-color: hsla(0, 100%, 100%, .7);
-    background-size: cover;
-    -webkit-filter: blur(.4rem);
-    filter: blur(.4rem);
-    height: 100%;
+  header {
+    display: none;
   }
+}
+
+.hero {
+  background: url('../images/hero.jpeg') center center no-repeat;
+  background-blend-mode: darken;
+  background-color: hsla(0, 0%, 0%, .7);
+  background-size: cover;
+  min-height: 100%;
+  position: relative;
 
   &__about-container {
-    @include padding(null, $su-3, null, $su-3);
+    @include padding(null, $su-6, null, $su-6);
+    color: $white;
     left: 0;
-    max-width: 70rem;
     position: absolute;
     text-align: center;
-    top: 35%;
+    top: 20%;
 
-    @include respond-to('md') {
-      left: 10%;
+    @include respond-to('sm') {
+      left: 5%;
       text-align: left;
-    }
-
-    @include respond-to('lg') {
-      left: 15%;
     }
   }
 
@@ -49,6 +47,7 @@
     @include margin($su-5, null, $su-5, null);
     font-size: $fs-4;
     letter-spacing: .1rem;
+    max-width: 55rem;
 
     @include respond-to('sm') {
       font-size: $fs-5;
@@ -56,6 +55,88 @@
 
     @include respond-to('md') {
       font-size: $fs-6;
+    }
+  }
+
+  &__learn-more-container {
+    @include padding($su-3, $su-7, $su-3, $su-7);
+    background-color: $green-500;
+    bottom: 0;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+
+  &__learn-more {
+    color: $white;
+
+    &:hover {
+      color: $green-100;
+      text-decoration: none;
+    }
+  }
+}
+
+.features {
+  @include padding($su-10, $su-6, $su-10, $su-6);
+  text-align: center;
+
+  @include respond-to('md') {
+    @include padding($su-10, null, $su-10, null);
+  }
+
+  &__headline {
+    @include margin(null, null, $su-8, null);
+    color: $neutral-500;
+    font-size: $fs-10;
+    font-weight: lighter;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    @include margin(null, null, $su-3, null);
+    color: $green-500;
+    font-size: $fs-11;
+
+    @include respond-to('md') {
+      @include margin(null, null, $su-5, null);
+    }
+  }
+
+  &__subheadline {
+    @include margin(null, null, $su-4, null);
+    font-size: $fs-5;
+    font-weight: bolder;
+    letter-spacing: .4rem;
+    text-transform: uppercase;
+  }
+}
+
+.cta {
+  @include padding($su-10, $su-6, $su-10, $su-6);
+  background: url('../images/cta.jpeg') center center no-repeat;
+  background-blend-mode: darken;
+  background-color: hsla(0, 0%, 0%, .7);
+  background-size: cover;
+
+  &__container {
+    color: $yellow-100;
+    text-align: center;
+  }
+
+  &__headline {
+    @include margin(null, null, $su-6, null);
+    font-size: $fs-9;
+
+    @include respond-to('sm') {
+      font-size: $fs-10;
+    }
+
+    span {
+      text-decoration: underline;
     }
   }
 }

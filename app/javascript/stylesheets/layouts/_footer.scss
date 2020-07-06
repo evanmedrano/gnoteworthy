@@ -1,0 +1,30 @@
+.footer {
+  @include padding($su-6, $su-6, $su-6, $su-6);
+  background-color: $black;
+  color: $white;
+  font-size: $fs-6;
+  text-align: center;
+
+  @include respond-to('sm') {
+    @include padding($su-9, null, $su-6, null);
+    text-align: left;
+  }
+
+  &__slogan {
+    color: $pink-100;
+    font-style: italic;
+  }
+
+  &__link {
+    color: $white;
+
+    &:hover {
+      color: $neutral-200;
+      text-decoration: none;
+    }
+
+    &:not(:first-child) {
+      @include margin(null, null, null, $su-5);
+    }
+  }
+}
