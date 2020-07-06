@@ -40,6 +40,13 @@
   &--transparent {
     background-color: transparent;
     border: 1px solid $neutral-200;
+    color: $neutral-200;
+
+    &:hover {
+      background-color: $green-100;
+      border: 1px solid $green-100;
+      color: $neutral-500;
+    }
   }
 
   &--yellow {

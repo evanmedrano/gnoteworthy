@@ -1,12 +1,15 @@
-div class="homeIndex"
-  .homeIndex__hero
+.homeIndex__hero
 
-  section.homeIndex__about-container
-    h1.homeIndex__headline gnoteworthy
-    p.homeIndex__subheadline
-      | Gnoteworthy is the solution for your note-taking needs.
-        Find peace knowing that we'll guard the treasures of your mind.
-    p = link_to \
-        "Sign up",
-        new_user_registration_path,
-        class: "button button--large button--red"
+section.homeIndex__about-container
+  h1.homeIndex__headline gnoteworthy
+  p.homeIndex__subheadline
+    | Gnoteworthy is the solution for your note-taking needs.
+      Find peace knowing that we'll guard the treasures of your mind.
+  span = link_to \
+           "Sign up",
+           new_user_registration_path,
+           class: "#{sign_up_button_classes}"
+  span = link_to \
+           "Log in",
+           new_user_session_path,
+           class: "#{log_in_button_classes}"
