@@ -1,15 +1,54 @@
-.homeIndex__hero
+section.hero
+  .hero__about-container
+    h1.hero__headline gnoteworthy
+    p.hero__subheadline.ml-sm-2
+      | gnoteworthy is the solution to your note-taking needs.
+        Find peace knowing that we'll guard the treasures of your mind.
+    span.ml-sm-2
+      = link_to \
+        "Sign up",
+        new_user_registration_path,
+        class: "#{sign_up_button_classes}"
+    span.ml-sm-2
+      = link_to \
+          "Log in",
+          new_user_session_path,
+          class: "#{log_in_button_classes}"
+  .hero__learn-more-container
+    span = link_to "Learn more", "#features", class: "hero__learn-more"
 
-section.homeIndex__about-container
-  h1.homeIndex__headline gnoteworthy
-  p.homeIndex__subheadline
-    | Gnoteworthy is the solution for your note-taking needs.
-      Find peace knowing that we'll guard the treasures of your mind.
-  span = link_to \
-           "Sign up",
-           new_user_registration_path,
-           class: "#{sign_up_button_classes}"
-  span = link_to \
-           "Log in",
-           new_user_session_path,
-           class: "#{log_in_button_classes}"
+section.features.container
+  h2.features__headline#features Features
+  .row
+    .col-12.col-md-4
+      i.fas.fa-pen-nib.features__icon
+      h3.features__subheadline Personalization
+      p.mb-5.mb-md-0
+        | With options to change the display and to sort your notes, you can
+          have the exact look you prefer with a few clicks!
+
+
+    .col-12.col-md-4
+      i.fas.fa-envelope.features__icon
+      h3.features__subheadline Save & send
+      p.mb-5.mb-md-0
+        | Take your notes with you! You can send your notes, old and new
+          straight to your email.
+
+    .col-12.col-md-4
+      i.fas.fa-lock.features__icon
+      h3.features__subheadline Privacy
+      p
+        | We take guarding your notes very seriously. You have an option to
+          making a note private, so only you can have access to its contents.
+
+section.cta
+  .cta__container
+    h2.cta__headline
+      | Ready to do something
+      span< gnoteworthy
+      | ?
+    = link_to \
+      "Sign up",
+      new_user_registration_path,
+      class: "#{sign_up_button_classes}"

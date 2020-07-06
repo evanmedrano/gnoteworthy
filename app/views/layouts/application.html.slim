@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title Gnoteworthy | Guard the treasures of your mind
+    title gnoteworthy | Guard the treasures of your mind
     = csrf_meta_tags
     = csp_meta_tag
 
@@ -17,3 +17,5 @@ html
         .flash = value.html_safe
 
     = yield
+
+    = render 'footer'
