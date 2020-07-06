@@ -1,0 +1,18 @@
+.flash {
+  @include margin(null, auto, $su-6, auto);
+  @include padding($su-4, $su-10, $su-4, $su-10);
+  border-radius: 1rem;
+  box-shadow: 0 .2rem .5rem hsla(0, 0%, 0%, .2);
+  font-size: $fs-6;
+  width: fit-content;
+
+  &--alert {
+    background-color: $red-100;
+    color: $red-500;
+  }
+
+  &--notice {
+    background-color: $green-100;
+    color: $green-500;
+  }
+}
