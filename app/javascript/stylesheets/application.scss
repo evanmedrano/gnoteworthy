@@ -14,4 +14,6 @@
 @import "layouts/footer";
 @import "layouts/header";
 
-@import "pages/home/index"
+@import "pages/devise/registrations";
+@import "pages/devise/sessions";
+@import "pages/home/index";

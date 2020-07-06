@@ -1,29 +1,86 @@
-<h2>Sign up</h2>
+<%= content_for :title, "Sign up" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="form">
+  <div class="form--left d-none d-md-block">
+    <%= link_to "gnoteworthy", root_path, class: "form--left__brand" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <h2 class="form--left__headline">
+      A few steps away from creating your own personal note-taking dashboard.
+    </h2>
+
+    <p class="form--left__subheadline">
+      Have a dashboard at your fingertips in a few minutes.
+    </p>
+
+    <div class="form--left__slogan-container">
+      <div class="pl-4 pb-4">
+        <span class="form--left__slogan">
+          Do something gnoteworthy.
+        </span>
+      </div>
+
+      <%= image_pack_tag 'logo.png', class: "form--left__logo" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+  <div class="form--right">
+    <%= link_to(
+      "gnoteworthy",
+      root_path,
+      class: "form--right__brand d-md-none",
+    ) %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <h2 class="form--right__headline">Sign up</h2>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= render "devise/shared/links" %>
+      <div class="form--right__field">
+        <%= f.label :email, class: "form--right__label" %>
+        <%= f.email_field(
+          :email,
+          autofocus: true,
+          autocomplete: "off",
+          placeholder: "greg.gnome@gnoteworthy.com",
+          class: "form--right__input",
+        ) %>
+      </div>
+
+      <div class="form--right__field">
+        <%= f.label :name, class: "form--right__label" %>
+        <%= f.text_field(
+          :name,
+          autocomplete: "off",
+          placeholder: "Gregory Gnome",
+          class: "form--right__input",
+        ) %>
+      </div>
+
+      <div class="form--right__field">
+        <%= f.label :password, class: "form--right__label" %>
+        <%= f.password_field(
+          :password,
+          autocomplete: "off",
+          placeholder: "Minimum of 6 characters",
+          class: "form--right__input",
+        )%>
+      </div>
+
+      <div class="form--right__field">
+        <%= f.label :password_confirmation, class: "form--right__label" %>
+        <%= f.password_field(
+          :password_confirmation,
+          autocomplete: "off",
+          placeholder: "Confirm password",
+          class: "form--right__input",
+        ) %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: "button button--pink my-3" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

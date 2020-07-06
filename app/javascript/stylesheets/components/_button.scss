@@ -1,5 +1,6 @@
 .button {
   @include padding($su-2, $su-4, $su-2, $su-4);
+  border: none;
   border-radius: 1rem;
   color: $white;
   display: inline-block;
@@ -22,10 +23,10 @@
   }
 
   &--pink {
-    background-color: $pink-300;
+    background-color: $pink-200;
 
     &:hover {
-      background-color: $pink-200;
+      background-color: $pink-100;
     }
   }
 
