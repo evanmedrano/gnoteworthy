@@ -5,6 +5,7 @@ feature "User signs up" do
     visit "/users/sign_up"
 
     expect { submit_form }.to change(User, :count).by(1)
+    expect(page).to have_content "Your gnoteworthy dashboard"
   end
 
   scenario "with invalid parameters" do

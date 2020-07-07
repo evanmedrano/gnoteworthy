@@ -8,6 +8,7 @@ feature "User logs in" do
     submit_form(email: user.email, password: user.password)
 
     expect(page).to have_content("Log out")
+    expect(page).to have_content "Your gnoteworthy dashboard"
   end
 
   scenario "with invalid parameters" do
