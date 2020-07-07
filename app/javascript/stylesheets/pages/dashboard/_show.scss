@@ -1,0 +1,13 @@
+.dashboard {
+  color: $black;
+  font-size: $fs-4;
+
+  &__button-container {
+    text-align: right;
+  }
+
+  &__plus-icon {
+    font-size: $fs-1;
+    vertical-align: inherit;
+  }
+}

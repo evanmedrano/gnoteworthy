@@ -13,9 +13,11 @@
 @import "components/flash";
 @import "components/form";
 
+@import "layouts/dashboard";
 @import "layouts/footer";
 @import "layouts/header";
 
+@import "pages/dashboard/show";
 @import "pages/devise/registrations";
 @import "pages/devise/sessions";
 @import "pages/home/index";

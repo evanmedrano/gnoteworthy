@@ -1,1 +1,9 @@
-h1 Your gnoteworthy dashboard
+.dashboard.container
+  .dashboard__button-container
+    = link_to new_dashboard_note_path, class: "button button--pink" do
+      i.fas.fa-plus.dashboard__plus-icon.mr-2
+      span New note
+
+    - if @dashboard.notes.any?
+      = @dashboard.notes.each do |note|
+        h2 = note.title

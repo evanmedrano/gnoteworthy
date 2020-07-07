@@ -1,30 +1,19 @@
 .footer {
-  @include padding($su-6, $su-6, $su-6, $su-6);
-  background-color: $black;
+  @include padding($su-2, $su-6, $su-2, $su-6);
+  background-color: transparent;
   color: $white;
-  font-size: $fs-6;
+  font-size: $fs-4;
+  font-weight: lighter;
+  letter-spacing: .2rem;
   text-align: center;
 
   @include respond-to('sm') {
-    @include padding($su-9, null, $su-6, null);
-    text-align: left;
+    @include padding($su-2, null, $su-2, null);
+    text-align: right;
   }
 
   &__slogan {
-    color: $pink-100;
+    color: $green-100;
     font-style: italic;
-  }
-
-  &__link {
-    color: $white;
-
-    &:hover {
-      color: $neutral-200;
-      text-decoration: none;
-    }
-
-    &:not(:first-child) {
-      @include margin(null, null, null, $su-5);
-    }
   }
 }

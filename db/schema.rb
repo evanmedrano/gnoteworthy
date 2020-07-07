@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_05_200851) do
+ActiveRecord::Schema.define(version: 2020_07_07_124654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "notes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "private", default: false
+    t.string "category"
+    t.string "password_digest"
+    t.string "priority"
+    t.string "title", default: ""
+    t.text "body", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +42,5 @@ ActiveRecord::Schema.define(version: 2020_07_05_200851) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "notes", "users"
 end

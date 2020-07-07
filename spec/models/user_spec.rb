@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe User do
+  context "associations" do
+    it { should have_many(:notes).dependent(:destroy) }
+  end
+
   context "validations" do
     context "presence" do
       it { should validate_presence_of(:email) }

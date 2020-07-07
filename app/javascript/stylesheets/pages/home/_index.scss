@@ -5,6 +5,11 @@
   header {
     display: none;
   }
+
+  footer {
+    @include padding($su-5, null, $su-5, null);
+    background-color: $neutral-500;
+  }
 }
 
 .hero {

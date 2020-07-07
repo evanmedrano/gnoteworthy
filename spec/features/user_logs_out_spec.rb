@@ -5,7 +5,7 @@ feature "User logs out" do
     sign_in create(:user)
     visit "/"
 
-    click_link "Log out"
+    click_link "Log out", match: :first
 
     expect(page).to have_content("Log in")
   end

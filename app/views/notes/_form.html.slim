@@ -1,0 +1,28 @@
+h2 New note
+
+= form_with model: note, url: dashboard_notes_path do |form|
+  - if note.errors.any?
+    = note.errors.full_messages.each do |error|
+      p = error
+
+  = form.hidden_field :user_id, value: current_user.id
+
+  = form.label :title
+  = form.text_field :title
+
+  = form.label :category
+  = form.text_field :category
+
+  = form.label :priority
+  = form.text_field :priority
+
+  = form.label :private
+  = form.text_field :private
+
+  = form.label :password
+  = form.password_field :password
+
+  = form.label :body
+  = form.text_area :body
+
+  = form.submit "Add note"

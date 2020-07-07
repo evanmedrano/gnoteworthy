@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/dashboard' => 'dashboards#show', :as => :user_root
 
-  resource :dashboard, only: [:show]
+  resource :dashboard, only: [:show] do
+    resources :notes
+  end
 end
