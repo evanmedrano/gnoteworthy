@@ -1,40 +1,22 @@
 .sessions {
   @include padding($su-9, null, $su-10, null);
+  background-color: $green-100;
 
   .header {
     display: none;
   }
 
   .form {
-    @include margin(null, auto, $su-8, auto);
-    @include padding(null, $su-6, null, $su-6);
-    border-radius: 1rem;
-    display: flex;
-    font-size: $fs-4;
     max-width: 75rem;
     min-height: 80vh;
-    width: 100%;
 
-    @include respond-to('lg') {
-      @include padding(null, 0, null, 0);
-      box-shadow: 0 .2rem .5rem hsla(0, 0%, 0%, .2);
-    }
 
     &--left {
       @include padding($su-3, null, null, $su-4);
       background: url('../images/login.jpeg') center center no-repeat;
       background-size: cover;
-      border-bottom-left-radius: 1rem;
-      border-top-left-radius: 1rem;
-      box-shadow: 0 .2rem .3rem hsla(0, 0%, 0%, .2);
-      line-height: 1.5;
       max-width: 25rem;
-      position: relative;
       width: 100%;
-
-      @include respond-to('lg') {
-        box-shadow: none;
-      }
 
       &__brand {
         color: $neutral-100;
@@ -49,27 +31,9 @@
     }
 
     &--right {
-      @include margin(null, auto, null, auto);
       @include padding($su-10, $su-6, $su-10, $su-6);
       background-color: $neutral-100;
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem;
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
-      box-shadow: 0 .2rem .3rem hsla(0, 0%, 0%, .2);
       max-width: 50rem;
-      position: relative;
-      text-align: center;
-      width: 100%;
-
-      @include respond-to('md') {
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      }
-
-      @include respond-to('lg') {
-        box-shadow: none;
-      }
 
       a.form--right__brand {
         color: $green-200;
@@ -87,47 +51,21 @@
       }
 
       &__headline {
-        @include margin(null, null, $su-6, null);
         color: $neutral-500;
-        font-size: $fs-9;
-      }
-
-      &__field {
-        @include margin(null, auto, null, auto);
-        max-width: 40rem;
       }
 
       &__label {
         color: $neutral-500;
-        display: block;
-        font-size: $fs-2;
-        font-weight: bolder;
-        letter-spacing: .2rem;
-        text-align: left;
-        text-transform: uppercase;
       }
 
       &__input {
-        @include margin(null, null, $su-5, null);
-        @include padding(null, $su-1, $su-1, $su-1);
         background-color: $neutral-100;
-        border: none;
         border-bottom: 1px solid $neutral-500;
         color: $neutral-300;
-        width: 100%;
-
-        &:focus {
-          outline: none;
-        }
 
         &::placeholder {
           color: $neutral-300;
         }
-      }
-
-      .button {
-        max-width: 40rem;
-        width: 100%;
       }
 
       a {
@@ -135,7 +73,6 @@
 
         &:hover {
           color: $neutral-400;
-          text-decoration: none;
         }
       }
     }

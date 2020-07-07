@@ -4,7 +4,12 @@
   border-radius: 1rem;
   box-shadow: 0 .2rem .5rem hsla(0, 0%, 0%, .2);
   font-size: $fs-6;
+  left: 50%;
+  position: absolute;
+  top: 2rem;
+  transform: translateX(-50%);
   width: fit-content;
+  z-index: 1000;
 
   &--alert {
     background-color: $red-100;
