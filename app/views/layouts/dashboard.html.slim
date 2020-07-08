@@ -12,10 +12,12 @@ html
   body class="d-flex flex-column dashboard-layout #{action_name}"
     = render 'header'
 
-    - if flash.any?
-      - flash.each do |key, value|
-        div class="flash flash--#{key}"
-          span = value.html_safe
+    - if flash[:alert]
+      div class="flash flash--alert"
+        span = alert
+    - if flash[:notice]
+      div class="flash flash--notice"
+        span = notice
 
     = yield
 

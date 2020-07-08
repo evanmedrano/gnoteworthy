@@ -1,14 +1,69 @@
 .dashboard-layout.new {
-  .form {
-    &--right {
-      &__input {
-        background-color: $green-100;
-        border-bottom: 1px solid $green-500;
-        color: $green-300;
+  .form--right {
+    background-color: $yellow-100;
+    border-radius: 1rem;
+    box-shadow: 0 .2rem .5rem hsla(0, 0%, 0%, .2);
+    font-size: $fs-4;
 
-        &::placeholder {
-          color: $green-300;
-        }
+    &__count {
+      color: $red-400;
+      font-size: $fs-7;
+      font-weight: bold;
+    }
+
+    &__error-list {
+      @include margin(null, null, $su-4, null);
+      list-style: none;
+    }
+
+    &__error {
+      color: $red-300;
+      font-weight: bold;
+    }
+
+    &__headline {
+      @include margin(null, null, $su-4, null);
+      color: $green-500;
+      font-size: $fs-8;
+    }
+
+    &__label {
+      color: $green-500;
+    }
+
+    &__input {
+      background-color: $yellow-100;
+      border-bottom: 1px solid $yellow-500;
+      color: $yellow-500;
+
+      &::placeholder {
+        color: $yellow-500;
+      }
+    }
+
+    &__options {
+      @include margin($su-2, auto, null, auto);
+      display: flex;
+      max-width: 40rem;
+
+    }
+
+    select {
+      background-color: $yellow-100;
+      border: none;
+      color: $yellow-500;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__link {
+      color: $yellow-500;
+
+      &:hover {
+        color: $yellow-400;
+        text-decoration: none;
       }
     }
   }

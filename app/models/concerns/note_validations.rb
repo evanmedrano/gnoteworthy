@@ -21,7 +21,7 @@ module NoteValidations
     end
 
     def private?
-      private == true
+      private == "true"
     end
   end
 end

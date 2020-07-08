@@ -1,19 +1,13 @@
 .footer {
-  @include padding($su-2, $su-6, $su-2, $su-6);
+  @include padding($su-4, $su-4, $su-4, $su-4);
   background-color: transparent;
   color: $white;
   font-size: $fs-4;
-  font-weight: lighter;
   letter-spacing: .2rem;
   text-align: center;
 
-  @include respond-to('sm') {
-    @include padding($su-2, null, $su-2, null);
-    text-align: right;
-  }
-
   &__slogan {
-    color: $green-100;
+    color: $neutral-500;
     font-style: italic;
   }
 }

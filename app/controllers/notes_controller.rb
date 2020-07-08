@@ -11,10 +11,9 @@ class NotesController < ApplicationController
     @note = Notes::FormService.new(note_params)
 
     if @note.save
-      redirect_to dashboard_path, notice: "Note saved."
+      redirect_with_notice
     else
-      flash.now[:alert] = "There was an error saving the note."
-      render :new
+      redirect_back_with_errors
     end
   end
 
@@ -23,5 +22,15 @@ class NotesController < ApplicationController
   def note_params
     params.require(:notes_form_service).
       permit(:body, :category, :password, :priority, :private, :title, :user_id)
+  end
+
+  def redirect_with_notice(notice: "Note saved.")
+    redirect_to dashboard_path, notice: notice
+  end
+
+  def redirect_back_with_errors
+    flash[:alert] = "Failed to save the note."
+    flash[:note_errors] = @note.errors.full_messages
+    redirect_back(fallback_location: root_url)
   end
 end

@@ -1,65 +1,67 @@
 = content_for :title, "New note"
 
-.container
-  .form
-    .form--left
-      h2.form--left__headline New note
+.container data-controller="form"
+  .form--right.mb-4
+    h2.form--right__headline = title
 
-      - if note.errors.any?
-        - note.errors.full_messages.each do |error|
-          p = error
+    = form_with model: note, url: url, local: true do |form|
 
-    .form--right
-      = form_with model: note, url: dashboard_notes_path, local: true do |form|
-        = form.hidden_field :user_id, value: current_user.id
+      - if flash[:note_errors]
+        span.form--right__count = pluralize(flash[:note_errors].count, "error")
 
+        ul.form--right__error-list
+          - flash[:note_errors].each do |error|
+            li.form--right__error = error
+
+      = form.hidden_field :user_id, value: current_user.id
+
+      .form--right__field
+        = form.label :title, class: "form--right__label"
+        = form.text_field \
+          :title,
+          autofocus: true,
+          autocomplete: "off",
+          placeholder: "Things to take care of",
+          class: "form--right__input"
+
+      .form--right__options
         .form--right__field
-          = form.label :title, class: "form--right__label"
-          = form.text_field \
-            :title,
-            autofocus: true,
-            autocomplete: "off",
-            placeholder: "Things to take care of",
-            class: "form--right__input"
-
-        .form--right__field
-          = form.label :category, class: "form--right__label"
-          = form.text_field \
+          = form.label :category, class: "form--right__label text-center"
+          = form.select \
             :category,
-            autocomplete: "off",
-            placeholder: "Work",
-            class: "form--right__input"
+            options_for_select(["Personal", "Work", "TODO", "Other"])
 
         .form--right__field
-          = form.label :priority, class: "form--right__label"
-          = form.text_field \
+          = form.label :priority, class: "form--right__label text-center"
+          = form.select \
             :priority,
-            autocomplete: "off",
-            placeholder: "High",
-            class: "form--right__input"
+            options_for_select(["Whenever", "Low", "Medium", "High", "Urgent"])
 
         .form--right__field
-          = form.label :private, class: "form--right__label"
-          = form.text_field \
+          = form.label :private, class: "form--right__label text-center"
+          = form.check_box \
             :private,
-            autocomplete: "off",
-            placeholder: "False",
-            class: "form--right__input"
+            { class: "form--right__input",
+              data: { "form-target": "checkbox", action: "click->form#toggle" }},
+            "true",
+            "false"
 
-        .form--right__field
-          = form.label :password, class: "form--right__label"
-          = form.text_field \
-            :password,
-            autocomplete: "off",
-            placeholder: "Minimum of 6 characters",
-            class: "form--right__input"
+      .form--right__field.d-none.mt-4 data-form-target="input"
+        = form.label :password, class: "form--right__label"
+        = form.password_field \
+          :password,
+          autocomplete: "off",
+          placeholder: "Minimum of 6 characters",
+          class: "form--right__input"
 
-        .form--right__field
-          = form.label :body, class: "form--right__label"
-          = form.text_area \
-            :body,
-            autocomplete: "off",
-            placeholder: "I need to take out the dog",
-            class: "form--right__input"
+      .form--right__field.mt-4
+        = form.label :body, class: "form--right__label"
+        = form.text_area \
+          :body,
+          autocomplete: "off",
+          placeholder: "I need to add a new feature for customers",
+          class: "form--right__input"
 
-        = form.submit "Add note", class: "button button--green"
+      = form.submit button, class: "button button--red mb-3"
+
+    = link_to "Back", dashboard_path, class: "form--right__link"

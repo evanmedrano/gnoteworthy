@@ -10,12 +10,12 @@
   }
 
   &__brand {
-    color: $yellow-200;
+    color: $green-200;
     font-family: cursive;
     font-size: $fs-9;
 
     &:hover {
-      color: $yellow-100;
+      color: $green-100;
       text-decoration: none;
     }
 
@@ -33,10 +33,10 @@
   }
 
   &__dashboard {
-    color: $green-500;
+    color: $yellow-200;
 
     &:hover {
-      color: $green-400;
+      color: $yellow-100;
       text-decoration: none;
     }
   }
@@ -44,7 +44,7 @@
   &__dashboard,
   &__link {
     border-bottom-width: 0;
-    font-weight: lighter;
+    font-weight: bolder;
     letter-spacing: .3rem;
 
     &::after {
@@ -62,10 +62,10 @@
   }
 
   &__link {
-    color: $neutral-500;
+    color: $neutral-200;
 
     &:hover {
-      color: $neutral-400;
+      color: $neutral-100;
       text-decoration: none;
     }
   }
