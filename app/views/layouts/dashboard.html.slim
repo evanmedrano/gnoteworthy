@@ -9,7 +9,7 @@ html
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body class="d-flex flex-column dashboard-layout"
+  body class="d-flex flex-column dashboard-layout #{action_name}"
     = render 'header'
 
     - if flash.any?

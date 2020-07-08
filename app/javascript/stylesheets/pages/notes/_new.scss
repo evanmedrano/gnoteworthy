@@ -1,0 +1,15 @@
+.dashboard-layout.new {
+  .form {
+    &--right {
+      &__input {
+        background-color: $green-100;
+        border-bottom: 1px solid $green-500;
+        color: $green-300;
+
+        &::placeholder {
+          color: $green-300;
+        }
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@ module NoteValidations
     validates :title, length: { maximum: 30 }
     validates :user_id, presence: true
 
-    with_options if: -> { body.blank? } do |note|
+    with_options if: -> { content_is_blank? } do |note|
       note.validates :title, presence: true
     end
 
@@ -15,6 +15,10 @@ module NoteValidations
     end
 
     private
+
+    def content_is_blank?
+      body.blank? && title.blank?
+    end
 
     def private?
       private == true
