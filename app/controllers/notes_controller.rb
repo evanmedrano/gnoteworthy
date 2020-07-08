@@ -1,10 +1,14 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   layout "dashboard"
 
   def new
-    @note = Notes::FormService.new
+    @note = Note.new
+  end
+
+  def edit
   end
 
   def create
@@ -17,15 +21,27 @@ class NotesController < ApplicationController
     end
   end
 
+  def update
+    if @note.update(note_params)
+      redirect_with_notice
+    else
+      redirect_back_with_errors
+    end
+  end
+
   private
 
+  def set_note
+    @note = Note.find_by(id: params[:id])
+  end
+
   def note_params
-    params.require(:notes_form_service).
+    params.require(:note).
       permit(:body, :category, :password, :priority, :private, :title, :user_id)
   end
 
-  def redirect_with_notice(notice: "Note saved.")
-    redirect_to dashboard_path, notice: notice
+  def redirect_with_notice
+    redirect_to dashboard_path, notice: "Note saved."
   end
 
   def redirect_back_with_errors

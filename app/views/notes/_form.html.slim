@@ -1,4 +1,4 @@
-= content_for :title, "New note"
+= content_for :title, title
 
 .container data-controller="form"
   .form--right.mb-4
@@ -21,8 +21,10 @@
           :title,
           autofocus: true,
           autocomplete: "off",
+          data: { action: "keyup->form#updateTextCount" },
           placeholder: "Things to take care of",
           class: "form--right__input"
+        small data-max="30" data-form-target="textCount" 30
 
       .form--right__options
         .form--right__field
@@ -46,7 +48,7 @@
             "true",
             "false"
 
-      .form--right__field.d-none.mt-4 data-form-target="input"
+      .form--right__field.d-none.mt-4 data-form-target="field"
         = form.label :password, class: "form--right__label"
         = form.password_field \
           :password,
@@ -59,9 +61,12 @@
         = form.text_area \
           :body,
           autocomplete: "off",
+          rows: 5,
           placeholder: "I need to add a new feature for customers",
+          data: { action: "keyup->form#updateTextCount" },
           class: "form--right__input"
+        small data-max="1000" data-form-target="textCount" 1000
 
-      = form.submit button, class: "button button--red mb-3"
+      = form.submit button, class: "button button--green mt-4 mb-2"
 
     = link_to "Back", dashboard_path, class: "form--right__link"

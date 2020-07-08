@@ -10,7 +10,7 @@ module NoteValidations
       note.validates :title, presence: true
     end
 
-    with_options if: -> { private? } do |note|
+    with_options if: -> { note_is_private? } do |note|
       note.validates :password, presence: true, length: { minimum: 6 }
     end
 
@@ -20,8 +20,8 @@ module NoteValidations
       body.blank? && title.blank?
     end
 
-    def private?
-      private == "true"
+    def note_is_private?
+      private == true || private == "true"
     end
   end
 end

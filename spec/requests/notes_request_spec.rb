@@ -1,12 +1,57 @@
 require 'rails_helper'
 
 describe "Notes" do
+  describe "#new" do
+    context "when a user is logged in" do
+      it "returns http success" do
+        sign_in create(:user)
+
+        get "/dashboard/notes/new"
+
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context "when a user is not logged in" do
+      it "returns http success" do
+        get "/dashboard/notes/new"
+
+        expect(response).to redirect_to("/users/sign_in")
+      end
+    end
+  end
+
+  describe "#edit" do
+    context "when a user is logged in" do
+      it "returns http success" do
+        note = create(:note)
+        sign_in create(:user)
+
+        get "/dashboard/notes/#{note.id}/edit"
+
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context "when a user is not logged in" do
+      it "returns http success" do
+        note = create(:note)
+
+        get "/dashboard/notes/#{note.id}/edit"
+
+        expect(response).to redirect_to("/users/sign_in")
+      end
+    end
+  end
+
   describe "#create" do
     context "with valid parameters" do
       it "saves a note to the database" do
         sign_in create(:user)
 
-        expect { post "/dashboard/notes", params: params }.to change(Note, :count).by(1)
+        expect {
+          post "/dashboard/notes", params: params
+        }.to change(Note, :count).by(1)
       end
 
       it "saves a new note for the current_user" do
@@ -51,14 +96,38 @@ describe "Notes" do
     end
   end
 
-  def params(user_id: created_user_id, title: "Note title", body: "Note body")
+  describe "#update" do
+    context "when the params are valid" do
+      it "updates the note" do
+        note = create(:note, title: "My note")
+        sign_in create(:user)
+
+        patch "/dashboard/notes/#{note.id}", params: params(title: "TODO")
+
+        expect(note.reload.title).to eq("TODO")
+      end
+    end
+
+    context "when the params are invalid" do
+      it "does not update the note" do
+        note = create(:note, private: false)
+        sign_in create(:user)
+
+        patch "/dashboard/notes/#{note.id}", params: params(private: "true")
+
+        expect(note.reload.private).to eq(false)
+      end
+    end
+  end
+
+  def params(user_id: created_user_id, **args)
     {
-      notes_form_service: {
-        body: body,
+      note: {
+        body: args[:body] || "Note body",
         category: "Work",
         priority: "High",
-        private: false,
-        title: title,
+        private: args[:private] || false,
+        title: args[:title] || "Note title",
         user_id: user_id,
       }
     }

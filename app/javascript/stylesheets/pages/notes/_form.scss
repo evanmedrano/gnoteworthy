@@ -1,8 +1,9 @@
-.dashboard-layout.new {
+.dashboard-layout {
   .form--right {
     background-color: $yellow-100;
     border-radius: 1rem;
     box-shadow: 0 .2rem .5rem hsla(0, 0%, 0%, .2);
+    color: $yellow-500;
     font-size: $fs-4;
 
     &__count {
@@ -17,7 +18,7 @@
     }
 
     &__error {
-      color: $red-300;
+      color: $red-300 !important;
       font-weight: bold;
     }
 
@@ -27,17 +28,28 @@
       font-size: $fs-8;
     }
 
+    &__field {
+      position: relative;
+
+      small {
+        bottom: .5rem;
+        color: $yellow-500;
+        position: absolute;
+        right: 0;
+      }
+    }
+
     &__label {
       color: $green-500;
     }
 
     &__input {
       background-color: $yellow-100;
-      border-bottom: 1px solid $yellow-500;
+      border-bottom: 1px solid $green-500;
       color: $yellow-500;
 
       &::placeholder {
-        color: $yellow-500;
+        color: $neutral-400;
       }
     }
 
@@ -45,13 +57,11 @@
       @include margin($su-2, auto, null, auto);
       display: flex;
       max-width: 40rem;
-
     }
 
     select {
       background-color: $yellow-100;
       border: none;
-      color: $yellow-500;
 
       &:focus {
         outline: none;
