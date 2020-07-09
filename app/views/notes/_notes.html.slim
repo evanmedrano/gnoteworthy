@@ -3,7 +3,17 @@
     .col-8.offset-2.offset-md-0.offset-lg-0.col-md-6.col-lg-3.mb-5 data-dashboard-target="note"
       .note
         .note__options
-          = link_to "View", dashboard_note_path(note), class: "note__view"
+          .d-flex.align-items-center.mr-auto
+            = form_with \
+              model: note.new_email,
+              url: emails_path,
+              local: true do |form|
+                = form.hidden_field :note_id, value: note.id
+
+                = form.button \
+                  "<i class='fas fa-envelope mr-1'></i> Email".html_safe,
+                  class: "note__email"
+
           = link_to "Edit", edit_dashboard_note_path(note), class: "note__edit"
           = link_to \
             "Delete",
@@ -36,3 +46,8 @@
             p.mt-4.d-none data-body="full" = note.body
             p.mt-4 data-body="truncated"
               | #{note.body.truncate(100, omission: "... (continued)")}
+
+        = link_to \
+          "View",
+          dashboard_note_path(note),
+          class: "button button--green mt-4"

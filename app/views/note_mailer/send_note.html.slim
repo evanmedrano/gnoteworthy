@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    meta charset="UTF-8"
+  body
+    h3 Hi there, #{@user.name}!
+
+    p Here is the note you requested to have delivered to you.
+
+    p <b>Title:</b> #{@note.title}
+    p <b>Category:</b> #{@note.category}
+    p <b>Urgency:</b> #{@note.urgency}
+
+    p <b>Body:</b> #{@note.body}
+
+    br /
+
+    p Hope you have a great rest of your day! - Evan

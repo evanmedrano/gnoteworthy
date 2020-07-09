@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show] do
     resources :notes, only: [:show, :new, :edit, :create, :update, :destroy]
   end
+
+  resource :emails, only: [:create]
 end

@@ -17,6 +17,12 @@
     display: flex;
   }
 
+  &:hover .button {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
   &__options {
     @include margin(null, null, $su-4, null);
     display: none;
@@ -24,14 +30,24 @@
     justify-content: space-between;
   }
 
-  &__view {
+  &__view,
+  &__email {
     @include margin(null, auto, null, null);
-    border-bottom: 1px solid currentColor;
     color: $pink-500;
 
     &:hover {
       color: $pink-400;
       text-decoration: none;
+    }
+  }
+
+
+  &__email {
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
     }
   }
 
@@ -64,5 +80,9 @@
   &__urgency--red {
     color: $red-300;
     font-weight: bold;
+  }
+
+  .button {
+    display: none;
   }
 }

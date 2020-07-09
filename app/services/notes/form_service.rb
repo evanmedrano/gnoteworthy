@@ -4,6 +4,7 @@ class Notes::FormService
 
   attr_accessor :body,
                 :category,
+                :email,
                 :password,
                 :private,
                 :title,
@@ -13,6 +14,7 @@ class Notes::FormService
   def save
     if valid?
       save_note
+      send_email if email_requested?
       true
     else
       false
@@ -26,8 +28,17 @@ class Notes::FormService
     note.save
   end
 
+  def send_email
+    EmailJob.perform_later(note)
+  end
+
+  def email_requested?
+    email == "true"
+  end
+
   def assign_note_attribute_values
     self.instance_values.each do |name, value|
+      next if name == "email"
       note.send("#{name}=", value) if respond_to?("#{name}=")
     end
 

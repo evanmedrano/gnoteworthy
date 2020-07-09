@@ -36,3 +36,6 @@ yarn-debug.log*
 .yarn-integrity
 
 Session.vim
+
+# Ignore application configuration
+/config/application.yml

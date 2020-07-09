@@ -1,9 +1,19 @@
 - if @note.public? || session[:authenticated]
   .container.form
     .form--left.d-none.d-md-flex.flex-md-column
-      .mb-4
-        i.far.fa-lightbulb.form--left__lightbulb
-        h3.form--left__headline.mt-1 = @note.title
+      .mb-1.text-right
+        = form_with \
+          model: @note.new_email,
+          url: emails_path,
+          local: true do |form|
+            = form.hidden_field :note_id, value: @note.id
+
+            = form.button \
+              "<i class='fas fa-envelope mr-1'></i> Email".html_safe,
+              class: "note__email"
+
+      i.far.fa-lightbulb.form--left__lightbulb
+      h3.form--left__headline.mt-2.mb-4 = @note.title
 
       .d-flex.align-items-center.mb-2
         i.fas.fa-clipboard-list.form--left__clipboard.mr-2
