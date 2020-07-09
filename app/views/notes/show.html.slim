@@ -1,9 +1,13 @@
 - if @note.public? || session[:authenticated]
   .container.form
     .form--left.d-none.d-md-flex.flex-md-column
-      .mb-4
-        i.far.fa-lightbulb.form--left__lightbulb
-        h3.form--left__headline.mt-1 = @note.title
+      .mb-1.text-right
+        = link_to "#", class: "form--left__email" do
+          i.fas.fa-envelope.mr-2
+          span Email
+
+      i.far.fa-lightbulb.form--left__lightbulb
+      h3.form--left__headline.mt-2.mb-4 = @note.title
 
       .d-flex.align-items-center.mb-2
         i.fas.fa-clipboard-list.form--left__clipboard.mr-2

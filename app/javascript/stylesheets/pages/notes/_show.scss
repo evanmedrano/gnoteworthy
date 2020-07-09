@@ -19,8 +19,17 @@
       color: $yellow-200
     }
 
+    &__email {
+      color: $white;
+
+      &:hover {
+        color: $neutral-200;
+        text-decoration: none;
+      }
+    }
+
     &__headline {
-      font-size: $fs-8;
+      font-size: $fs-7;
       font-style: italic;
       word-break: break-all;
     }

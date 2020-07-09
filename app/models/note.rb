@@ -15,6 +15,10 @@ class Note < ApplicationRecord
     urgency == "High" || urgency == "Urgent"
   end
 
+  def new_email
+    @new_email ||= Notes::EmailService.new
+  end
+
   private
 
   def assign_note_title?
