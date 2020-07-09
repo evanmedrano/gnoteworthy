@@ -21,7 +21,18 @@ module NoteValidations
     end
 
     def note_is_private?
-      (private == true || private == "true") && password_digest.nil?
+      # the first branch is to handle updating notes in the db
+      # the second branch handles the creation of notes via the form service
+
+      if respond_to?(:password_digest)
+        is_private? && password_digest.nil?
+      else
+        is_private?
+      end
+    end
+
+    def is_private?
+      (private == true || private == "true")
     end
   end
 end

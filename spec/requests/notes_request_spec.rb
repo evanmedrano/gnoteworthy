@@ -118,6 +118,18 @@ describe "Notes" do
         expect(note.reload.private).to eq(false)
       end
     end
+
+    context "with no title present" do
+      it "saves the note & the title is the first 30 characters of the body" do
+        user = create(:user)
+        note = create(:note, user: user, body: "Note body", title: "Hey there")
+        sign_in user
+
+        patch "/dashboard/notes/#{note.id}", params: params(title: "")
+
+        expect(note.reload.title).to eq("Note body")
+      end
+    end
   end
 
   describe "#delete" do

@@ -22,6 +22,7 @@
     &__headline {
       font-size: $fs-8;
       font-style: italic;
+      word-break: break-all;
     }
 
     &__clipboard {
@@ -44,6 +45,7 @@
     height: fit-content;
     max-width: 50rem;
     min-height: 40rem;
+    word-break: break-all;
 
     @include respond-to('md') {
       border-bottom-left-radius: 0;

@@ -1,15 +1,13 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the DashboardsHelper. For example:
-#
-# describe DashboardsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe DashboardsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe DashboardsHelper do
+  describe "#urgency" do
+    it "returns red for high and urgent notes" do
+      note1 = build_stubbed(:note, urgency: "High")
+      note2 = build_stubbed(:note, urgency: "Urgent")
+
+      expect(helper.urgency(note1)). to eq("note__urgency--red")
+      expect(helper.urgency(note2)). to eq("note__urgency--red")
+    end
+  end
 end

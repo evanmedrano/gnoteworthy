@@ -60,7 +60,7 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).
-      permit(:body, :category, :password, :priority, :private, :title, :user_id)
+      permit(:body, :category, :password, :urgency, :private, :title, :user_id)
   end
 
   def redirect_with_notice(notice: "Note saved.")

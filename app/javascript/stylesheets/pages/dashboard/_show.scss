@@ -1,9 +1,38 @@
+.dashboard-layout.show {
+  .row:hover .note {
+    background-color: $neutral-100;
+    color: $neutral-500;
+  }
+
+  .row:hover .note:hover {
+    background-color: $yellow-100;
+    color: $yellow-500;
+
+    @include respond-to('md') {
+      transform: scale(1.1);
+    }
+  }
+}
+
 .dashboard {
-  color: $black;
   font-size: $fs-4;
 
-  &__button-container {
-    text-align: right;
+  &__views {
+    color: $neutral-500;
+    display: flex;
+    font-size: $fs-6;
+  }
+
+  &__view:hover {
+    color: $neutral-400;
+  }
+
+  &__view--active {
+    color: $green-300;
+
+    &:hover {
+      color: $green-200;
+    }
   }
 
   &__plus-icon {

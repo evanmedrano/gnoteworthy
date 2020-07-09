@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_124654) do
+ActiveRecord::Schema.define(version: 2020_07_09_170410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_124654) do
     t.boolean "private", default: false
     t.string "category"
     t.string "password_digest"
-    t.string "priority"
+    t.string "urgency"
     t.string "title", default: ""
     t.text "body", default: ""
     t.datetime "created_at", precision: 6, null: false

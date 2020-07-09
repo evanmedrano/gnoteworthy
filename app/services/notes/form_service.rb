@@ -6,8 +6,8 @@ class Notes::FormService
                 :category,
                 :password,
                 :private,
-                :priority,
                 :title,
+                :urgency,
                 :user_id
 
   def save

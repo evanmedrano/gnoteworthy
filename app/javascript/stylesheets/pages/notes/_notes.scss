@@ -2,10 +2,15 @@
   @include padding($su-4, $su-5, $su-4, $su-5);
   background-color: $yellow-100;
   border-radius: 1rem;
+  color: $yellow-500;
   font-size: $fs-3;
+  transition: all .2s;
+  word-break: break-all;
 
   &:hover {
     cursor: default;
+    box-shadow: 0 .4rem 1rem hsla(0, 0%, 0%, .3);
+    transform: translateY(-1rem);
   }
 
   &:hover &__options {
@@ -53,6 +58,11 @@
     @include margin(null, null, 0, null);
     font-size: $fs-5;
     font-style: italic;
+    font-weight: bold;
+  }
+
+  &__urgency--red {
+    color: $red-300;
     font-weight: bold;
   }
 }

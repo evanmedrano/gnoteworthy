@@ -1,9 +1,22 @@
 = content_for :title, "Dashboard"
 
-.dashboard.container
-  .dashboard__button-container
-    = link_to new_dashboard_note_path, class: "button button--pink" do
-      i.fas.fa-plus.dashboard__plus-icon.mr-2
-      span New note
+.dashboard.container data-controller="dashboard"
+  .d-flex
+    .dashboard__views
+      i(
+        class="#{row_styles}"
+        data-action="click->dashboard#displayRow"
+        data-dashboard-target="rowView"
+      )
+      i(
+        class="#{grid_styles}"
+        data-action="click->dashboard#displayGrid"
+        data-dashboard-target="gridView"
+      )
+
+    .text-right.w-100
+      = link_to new_dashboard_note_path, class: "button button--pink" do
+        i.fas.fa-plus.dashboard__plus-icon.mr-2
+        span New note
 
   = render 'notes/notes', notes: @dashboard.notes

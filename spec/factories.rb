@@ -8,7 +8,7 @@ FactoryBot.define do
     body { Faker::Lorem.paragraph(sentence_count: 4) }
     category { "Work" }
     password { nil }
-    priority { "High" }
+    urgency { "High" }
     private { false }
     title { "My title" }
 

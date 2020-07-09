@@ -22,7 +22,7 @@ describe Notes::FormService, type: :service do
     {
       body: body,
       category: "Work",
-      priority: "High",
+      urgency: "High",
       private: false,
       title: title,
       user_id: user_id,

@@ -11,7 +11,7 @@
 
       .d-flex.align-items-center
         i.fas.fa-bullseye.form--left__bullseye.mr-2
-        span = @note.priority
+        span = @note.urgency
 
     .form--right
       .d-flex.mb-3.align-items-center
@@ -30,7 +30,7 @@
 
       .d-flex.justify-content-between.mb-5.mb-md-0
         small.d-md-none.form--right__small = @note.category
-        small.d-md-none.form--right__small = @note.priority
+        small.d-md-none.form--right__small = @note.urgency
 
       .form--right__body
         - if @note.body.blank?
