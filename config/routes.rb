@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get '/dashboard' => 'dashboards#show', :as => :user_root
 
   resource :dashboard, only: [:show] do
-    resources :notes
+    resources :notes, only: [:show, :new, :edit, :create, :update, :destroy]
   end
 end

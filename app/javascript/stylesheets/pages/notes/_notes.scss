@@ -1,0 +1,58 @@
+.note {
+  @include padding($su-4, $su-5, $su-4, $su-5);
+  background-color: $yellow-100;
+  border-radius: 1rem;
+  font-size: $fs-3;
+
+  &:hover {
+    cursor: default;
+  }
+
+  &:hover &__options {
+    display: flex;
+  }
+
+  &__options {
+    @include margin(null, null, $su-4, null);
+    display: none;
+    font-size: $fs-4;
+    justify-content: space-between;
+  }
+
+  &__view {
+    @include margin(null, auto, null, null);
+    border-bottom: 1px solid currentColor;
+    color: $pink-500;
+
+    &:hover {
+      color: $pink-400;
+      text-decoration: none;
+    }
+  }
+
+  &__edit {
+    color: $neutral-500;
+
+    &:hover {
+      color: $neutral-400;
+      text-decoration: none;
+    }
+  }
+
+  &__delete {
+    @include margin(null, null, null, $su-2);
+    color: $red-300;
+
+    &:hover {
+      color: $red-200;
+      text-decoration: none;
+    }
+  }
+
+  &__title {
+    @include margin(null, null, 0, null);
+    font-size: $fs-5;
+    font-style: italic;
+    font-weight: bold;
+  }
+}

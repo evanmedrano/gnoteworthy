@@ -120,6 +120,18 @@ describe "Notes" do
     end
   end
 
+  describe "#delete" do
+    it "deletes the note from the database" do
+      user = create(:user)
+      note = create(:note, user: user)
+      sign_in user
+
+      expect {
+        delete "/dashboard/notes/#{note.id}"
+      }.to change(Note, :count).by(-1)
+    end
+  end
+
   def params(user_id: created_user_id, **args)
     {
       note: {

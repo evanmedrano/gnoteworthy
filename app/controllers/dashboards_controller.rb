@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   before_action :authenticate_user!
+  before_action :clear_session
 
   layout "dashboard"
 

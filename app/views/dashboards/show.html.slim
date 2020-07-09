@@ -6,6 +6,4 @@
       i.fas.fa-plus.dashboard__plus-icon.mr-2
       span New note
 
-    - if @dashboard.notes.any?
-      - @dashboard.notes.each do |note|
-        h2 = note.title
+  = render 'notes/notes', notes: @dashboard.notes

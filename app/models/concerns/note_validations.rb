@@ -21,7 +21,7 @@ module NoteValidations
     end
 
     def note_is_private?
-      private == true || private == "true"
+      (private == true || private == "true") && password_digest.nil?
     end
   end
 end

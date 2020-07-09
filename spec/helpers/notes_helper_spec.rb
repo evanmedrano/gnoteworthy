@@ -1,15 +1,24 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the NotesHelper. For example:
-#
-# describe NotesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe NotesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe NotesHelper do
+  describe "#note_creation_info" do
+    it "returns the current user's name within the string" do
+      user = create(:user)
+      note = create(:note, user: user)
+
+      allow(helper).to receive(:current_user).and_return(user)
+
+      expect(helper.note_creation_info(note)). to include(user.name)
+    end
+
+    it "returns a formatted created_at time" do
+      user = create(:user)
+      note = create(:note, user: user, created_at: Time.current)
+
+      allow(helper).to receive(:current_user).and_return(user)
+      formatted_time = note.created_at.strftime("%a %I:%M")
+
+      expect(helper.note_creation_info(note)). to include(formatted_time)
+    end
+  end
 end

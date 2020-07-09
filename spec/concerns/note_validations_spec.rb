@@ -6,7 +6,7 @@ shared_examples "note validations" do
 
       context "when private" do
         it "should validate a password is at least 6 characters long" do
-          allow(subject).to receive(:private?).and_return(true)
+          allow(subject).to receive(:note_is_private?).and_return(true)
 
           should validate_length_of(:password).is_at_least(6)
         end
@@ -14,7 +14,7 @@ shared_examples "note validations" do
 
       context "when public" do
         it "should not validate a password is at least 6 characters long" do
-          allow(subject).to receive(:private?).and_return(false)
+          allow(subject).to receive(:note_is_private?).and_return(false)
 
           should_not validate_length_of(:password).is_at_least(6)
         end
@@ -35,7 +35,7 @@ shared_examples "note validations" do
 
       context "when private" do
         it "should validate a password is present" do
-          allow(subject).to receive(:private?).and_return(true)
+          allow(subject).to receive(:note_is_private?).and_return(true)
 
           should validate_presence_of(:password)
         end
@@ -43,7 +43,7 @@ shared_examples "note validations" do
 
       context "when public" do
         it "should not validate a password is present" do
-          allow(subject).to receive(:private?).and_return(false)
+          allow(subject).to receive(:note_is_private?).and_return(false)
 
           should_not validate_presence_of(:password)
         end

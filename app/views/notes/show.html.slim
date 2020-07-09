@@ -1,8 +1,4 @@
 - if @note.public? || session[:authenticated]
-  = render 'notes/form',
-    note: @note,
-    title: "Edit note",
-    button: "Edit note",
-    url: dashboard_note_path
+  h2 = @note.title
 - else
   = render "authenticate_form", url: edit_dashboard_note_path(@note)
