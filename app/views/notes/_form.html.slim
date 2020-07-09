@@ -48,6 +48,15 @@
             "true",
             "false"
 
+        - if @note.new_record?
+          .form--right__field
+            = form.label :email, class: "form--right__label text-center"
+            = form.check_box \
+              :email,
+              { class: "form--right__input" },
+              "true",
+              "false"
+
       .form--right__field.d-none.mt-4 data-form-target="field"
         = form.label :password, class: "form--right__label"
         = form.password_field \

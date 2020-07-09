@@ -1,0 +1,6 @@
+concurrency: 1
+queues:
+  - default
+  - mailers
+  - gnoteworthy_default
+  - gnoteworthy_mailers

@@ -19,8 +19,12 @@
       color: $yellow-200
     }
 
-    &__email {
+    .note__email {
       color: $white;
+
+      &:focus {
+        outline: none;
+      }
 
       &:hover {
         color: $neutral-200;

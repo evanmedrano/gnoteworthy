@@ -45,6 +45,10 @@
   &__email {
     background-color: transparent;
     border: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__edit {
