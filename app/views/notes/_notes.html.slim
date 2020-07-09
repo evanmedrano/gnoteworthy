@@ -19,5 +19,6 @@
 
         - if note.public?
           h3.note__title = note.title
-          small.mb-3.d-block = note_creation_info(note)
+          i.fas.fa-pen-fancy
+          small.mb-3.d-inline-block.font-italic = note_creation_info(note)
           p = note.body.truncate(75, omission: "... (continued)")

@@ -1,0 +1,65 @@
+.dashboard-layout.show {
+  .form {
+    box-shadow: none;
+    color: $white;
+    max-width: 85rem;
+  }
+
+  .form--left {
+    background: url('../images/note.jpeg') center center no-repeat;
+    background-blend-mode: luminosity;
+    background-color: hsla(0, 0%, 0%, .75);
+    background-size: cover;
+    box-shadow: none;
+    font-size: $fs-5;
+    max-width: 35rem;
+    min-height: 40rem;
+
+    &__lightbulb {
+      color: $yellow-200
+    }
+
+    &__headline {
+      font-size: $fs-8;
+      font-style: italic;
+    }
+
+    &__clipboard {
+      color: $neutral-200;
+      width: 2rem;
+    }
+
+    &__bullseye {
+      color: $red-200;
+      width: 2rem;
+    }
+  }
+
+  .form--right {
+    @include padding($su-4, $su-6, $su-4, $su-6);
+    background-color: $neutral-100;
+    box-shadow: none;
+    color: $neutral-500;
+    line-height: 1.35;
+    height: fit-content;
+    max-width: 50rem;
+    min-height: 40rem;
+
+    @include respond-to('md') {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      line-height: 1.5;
+    }
+
+    &__small {
+      color: $neutral-300;
+    }
+
+    &__body {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 40rem;
+    }
+  }
+}

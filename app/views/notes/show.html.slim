@@ -1,4 +1,43 @@
 - if @note.public? || session[:authenticated]
-  h2 = @note.title
+  .container.form
+    .form--left.d-none.d-md-flex.flex-md-column
+      .mb-4
+        i.far.fa-lightbulb.form--left__lightbulb
+        h3.form--left__headline.mt-1 = @note.title
+
+      .d-flex.align-items-center.mb-2
+        i.fas.fa-clipboard-list.form--left__clipboard.mr-2
+        span = @note.category
+
+      .d-flex.align-items-center
+        i.fas.fa-bullseye.form--left__bullseye.mr-2
+        span = @note.priority
+
+    .form--right
+      .d-flex.mb-3.align-items-center
+        i.fas.fa-pen-fancy.mr-1
+        small.mr-auto.d-inline-block = note_creation_info(@note)
+        = link_to "Edit", edit_dashboard_note_path(@note), class: "note__edit"
+        = link_to \
+          "Delete",
+          dashboard_note_path(@note),
+          method: :delete,
+          class: "ml-3 note__delete"
+
+      .d-flex.d-md-none.justify-content-center.align-items-baseline
+        i.far.fa-lightbulb.mr-3
+        h3.font-italic = @note.title
+
+      .d-flex.justify-content-between.mb-5.mb-md-0
+        small.d-md-none.form--right__small = @note.category
+        small.d-md-none.form--right__small = @note.priority
+
+      .form--right__body
+        - if @note.body.blank?
+          p.mt-md-4 No additional information was provided for this note.
+        - else
+          p.mt-md-4 = @note.body
+
+        = link_to "Back", dashboard_path, class: "mt-auto mr-0 note__view"
 - else
-  = render "authenticate_form", url: edit_dashboard_note_path(@note)
+  = render "authenticate_form", url: dashboard_note_path(@note)
