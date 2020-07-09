@@ -15,6 +15,7 @@ Rails.application.configure do
     user_name: ENV['PROD_USERNAME'],
     password: ENV['PROD_PASSWORD'],
     authentication: 'plain',
+    domain: 'gmail.com',
     enable_starttls_auto: true
   }
 
