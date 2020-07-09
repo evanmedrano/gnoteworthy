@@ -34,9 +34,9 @@
             options_for_select(["Personal", "Work", "TODO", "Other"])
 
         .form--right__field
-          = form.label :priority, class: "form--right__label text-center"
+          = form.label :urgency, class: "form--right__label text-center"
           = form.select \
-            :priority,
+            :urgency,
             options_for_select(["Whenever", "Low", "Medium", "High", "Urgent"])
 
         .form--right__field
