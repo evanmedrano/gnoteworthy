@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'errors/show'
   root to: 'home#index'
 
   devise_for :users
@@ -9,4 +10,6 @@ Rails.application.routes.draw do
   end
 
   resource :emails, only: [:create]
+
+  get '*unmatched_route', to: 'errors#show'
 end

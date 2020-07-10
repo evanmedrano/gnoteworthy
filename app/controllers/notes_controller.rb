@@ -1,7 +1,8 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate, only: [:show, :edit]
+  before_action :authorize_user, only: [:show, :edit]
+  before_action :authenticate_password, only: [:show, :edit]
 
   layout "dashboard"
 
@@ -44,10 +45,18 @@ class NotesController < ApplicationController
   private
 
   def set_note
-    @note = Note.find_by(id: params[:id])
+    @note = Note.find_by!(id: params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to "/whoops"
   end
 
-  def authenticate
+  def authorize_user
+    if @note.user != current_user
+      redirect_to "/whoops"
+    end
+  end
+
+  def authenticate_password
     return if @note.public?
 
     if @note.authenticate(params[:password])
