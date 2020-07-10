@@ -1,6 +1,51 @@
 require 'rails_helper'
 
 describe "Notes" do
+  describe "#show" do
+    context "when a user is logged in" do
+      it "returns http success" do
+        user = create(:user)
+        note = create(:note, user: user)
+        sign_in user
+
+        get "/dashboard/notes/#{note.id}"
+
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context "when a user is not logged in" do
+      it "returns http success" do
+        note = create(:note)
+
+        get "/dashboard/notes/#{note.id}"
+
+        expect(response).to redirect_to("/users/sign_in")
+      end
+    end
+
+    context "when a user tries to access a note they did not make" do
+      it "redirects to the errors#show page" do
+        note = create(:note)
+        sign_in create(:user)
+
+        get "/dashboard/notes/#{note.id}"
+
+        expect(response).to redirect_to("/whoops")
+      end
+    end
+
+    context "when a non-existing note is included in the params" do
+      it "redirects to the errors#show page" do
+        sign_in create(:user)
+
+        get "/dashboard/notes/20"
+
+        expect(response).to redirect_to("/whoops")
+      end
+    end
+  end
+
   describe "#new" do
     context "when a user is logged in" do
       it "returns http success" do
@@ -24,8 +69,9 @@ describe "Notes" do
   describe "#edit" do
     context "when a user is logged in" do
       it "returns http success" do
-        note = create(:note)
-        sign_in create(:user)
+        user = create(:user)
+        note = create(:note, user: user)
+        sign_in user
 
         get "/dashboard/notes/#{note.id}/edit"
 
@@ -40,6 +86,27 @@ describe "Notes" do
         get "/dashboard/notes/#{note.id}/edit"
 
         expect(response).to redirect_to("/users/sign_in")
+      end
+    end
+
+    context "when a user tries to access a note they did not make" do
+      it "redirects to the errors#show page" do
+        note = create(:note)
+        sign_in create(:user)
+
+        get "/dashboard/notes/#{note.id}/edit"
+
+        expect(response).to redirect_to("/whoops")
+      end
+    end
+
+    context "when a non-existing note is included in the params" do
+      it "redirects to the errors#show page" do
+        sign_in create(:user)
+
+        get "/dashboard/notes/20/edit"
+
+        expect(response).to redirect_to("/whoops")
       end
     end
   end

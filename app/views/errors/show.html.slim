@@ -1,0 +1,19 @@
+.errors__container
+  h1.errors__headline Oh no! Looks like you stumbled upon the wrong garden.
+
+  .d-flex.mt-5
+    = link_to \
+      "Home",
+      root_path,
+      class: "button button--large button--transparent mr-3"
+
+    - if user_signed_in?
+      = link_to \
+        "My Dashboard",
+        dashboard_path,
+        class: "button button--large button--pink"
+    - else
+      = link_to \
+        "Log in",
+        new_user_session_path,
+        class: "button button--large button--pink"
