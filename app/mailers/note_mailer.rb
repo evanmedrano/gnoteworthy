@@ -7,7 +7,7 @@ class NoteMailer < ApplicationMailer
 
     mail(
       to: @user.email,
-      subject: "My note: #{@note.title} from gnoteworthy"
+      subject: "Your note: '#{@note.title}' – courtesy of gnoteworthy"
     )
   end
 end
