@@ -5,6 +5,6 @@ class DashboardsController < ApplicationController
   layout "dashboard"
 
   def show
-    @dashboard = Dashboard.new(current_user)
+    @dashboard = Dashboard.new(current_user, params)
   end
 end

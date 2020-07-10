@@ -31,13 +31,17 @@
           = form.label :category, class: "form--right__label text-center"
           = form.select \
             :category,
-            options_for_select(["Personal", "Work", "TODO", "Other"])
+            options_for_select(\
+              ["Personal", "Work", "TODO", "Other"],
+              selected: note.category)
 
         .form--right__field
           = form.label :urgency, class: "form--right__label text-center"
           = form.select \
             :urgency,
-            options_for_select(["Whenever", "Low", "Medium", "High", "Urgent"])
+            options_for_select(\
+              ["Whenever", "Low", "Medium", "High", "Urgent"],
+              selected: note.urgency)
 
         .form--right__field
           = form.label :private, class: "form--right__label text-center"

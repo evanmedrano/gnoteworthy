@@ -39,4 +39,15 @@
     font-size: $fs-1;
     vertical-align: inherit;
   }
+
+  &__sort {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $neutral-500;
+    color: $neutral-500;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }

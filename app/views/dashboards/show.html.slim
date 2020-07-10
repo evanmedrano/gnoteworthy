@@ -19,4 +19,19 @@
         i.fas.fa-plus.dashboard__plus-icon.mr-2
         span New note
 
+  .d-flex
+    span Sort by:
+    = form_tag dashboard_path, method: :get do
+      = select_tag \
+        "sort_by",
+        options_for_select(\
+          [["first added", :first_added],
+          ["last added", :last_added],
+          ["priority", :priority],
+          ["title", :title],
+          ["category", :category]],
+          selected: params[:sort_by]),
+        onchange: "this.form.submit();",
+        class: "ml-1 dashboard__sort"
+
   = render 'notes/notes', notes: @dashboard.notes
