@@ -70,7 +70,7 @@ class NotesController < ApplicationController
   def note_params
     params.require(:note).
       permit(
-        :body, :category, :password, :urgency, :private, :title, :user_id, :email
+        :body, :category, :password, :priority, :urgency, :private, :title, :user_id, :email
       )
   end
 

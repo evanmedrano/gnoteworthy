@@ -26,6 +26,7 @@
           .d-flex.justify-content-between.align-items-center
             h3 class="note__title #{urgency(note)}" = note.title
             i.fas.fa-lock
+          small.d-inline-block.font-italic = note_creation_info(note)
 
         - if note.public?
           h3 class="note__title #{urgency(note)}" = note.title

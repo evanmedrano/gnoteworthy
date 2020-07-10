@@ -6,6 +6,7 @@ class Notes::FormService
                 :category,
                 :email,
                 :password,
+                :priority,
                 :private,
                 :title,
                 :urgency,
