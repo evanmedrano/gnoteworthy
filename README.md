@@ -17,7 +17,7 @@ Several other features can be found within the app as well, such as:
 
 For simple javascript functionality, I chose to use
 [StimulusJS](https://stimulusjs.org/). I find
-Stimulus a pleasure to work with, espcially when only a component or two
+Stimulus a pleasure to work with, especially when only a component or two
 need to have extra page interactivity.
 
 The app also leverages several different gems for performance/personal
