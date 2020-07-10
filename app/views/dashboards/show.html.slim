@@ -23,7 +23,7 @@
     span Sort by:
     = form_tag dashboard_path, method: :get do
       = select_tag \
-        "sort_by",
+        "sort",
         options_for_select(\
           [["first added", :first_added],
           ["last added", :last_added],
@@ -33,5 +33,33 @@
           selected: params[:sort_by]),
         onchange: "this.form.submit();",
         class: "ml-1 dashboard__sort"
+  .d-flex.mt-2
+    span Filter by:
+    = form_tag dashboard_path, method: :get do
+      = select_tag \
+        "filter",
+        options_for_select(\
+          [["Personal", :personal],
+          ["TODO", :todo],
+          ["Work", :work],
+          ["Other", :other]],
+          selected: params[:filter]),
+        include_blank: "Category",
+        onchange: "this.form.submit();",
+        class: "ml-1 mr-3 dashboard__sort"
+    = form_tag dashboard_path, method: :get do
+      = select_tag \
+        "filter",
+        options_for_select(\
+          [["Whenever", :whenever],
+          ["Low", :low],
+          ["Medium", :medium],
+          ["High", :high],
+          ["Urgent", :urgent]],
+          selected: params[:filter]),
+        include_blank: "Priority",
+        onchange: "this.form.submit();",
+        class: "ml-1 dashboard__sort"
+
 
   = render 'notes/notes', notes: @dashboard.notes

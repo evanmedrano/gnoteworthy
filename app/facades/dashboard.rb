@@ -5,8 +5,8 @@ class Dashboard
   end
 
   def notes
-    if params[:sort_by]
-      Notes::RenderService.new(user, sorting_option).notes
+    if params_given?
+      Notes::RenderService.new(user, params).notes
     else
       user.notes
     end
@@ -16,7 +16,7 @@ class Dashboard
 
   attr_reader :user, :params
 
-  def sorting_option
-    params[:sort_by]
+  def params_given?
+    params[:sort] || params[:filter]
   end
 end

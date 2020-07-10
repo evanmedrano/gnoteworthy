@@ -43,8 +43,8 @@
   &__sort {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid $neutral-500;
     color: $neutral-500;
+    font-weight: bolder;
 
     &:focus {
       outline: none;
